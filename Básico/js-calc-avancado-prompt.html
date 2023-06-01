@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js básico</title>
+</head>
+<body>
+    <div id="resp"></div>
+    <script>
+        alert('Olá! Mundo')
+        let pergunta = window.confirm('Você quer continuar?')
+        let res = document.getElementById('resp')
+
+        res.innerHTML = 'Oi, tudo bem?'
+
+        if(pergunta == true) {
+            let numero1 = window.prompt('Digite um número entre 1 e 1000')
+            let n1 = Number(numero1)
+            if (numero1.length == 0 || n1 <= 0 || n1 > 1000) {
+                window.alert('Você não digitou um número válido! Reinicie a página e tente novamente.')
+                res.innerHTML += '<br>Reinicie a página e tente novamente!'
+            } else {
+                let numero2 = window.prompt('Digite mais um número entre 1 e 1000')
+                let n2 = Number(numero2)
+                if (numero2.length == 0 || n1 <= 0 || n1 > 1000) {
+                    window.alert('Você não digitou um número válido! Reinicie a página e tente novamente.')
+                    res.innerHTML += '<br>Reinicie a página e tente novamente!'
+                } else {
+                    let soma = n1 + n2
+
+                    if(isNaN(soma)) {
+                        res.innerHTML = 'Você não digitou números válidos! Reinicie a página e tente novamente.'
+                    } else {
+                        res.innerHTML += '<br>Parabéns! Você optou por prosseguir com o processo.'
+                        res.innerHTML += `<br>A soma dos valores digitados é igual a ${soma}.`
+                    }
+                }
+            }
+        } else {
+            res.innerHTML += '<br>Que pena! Você optou por não seguir com o processo :/'
+        }
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brincando com números</title>
+</head>
+<body>
+
+    <section><h1>Seu número é<span id="span">0</span></h1></section>
+    <div id="resp"></div>
+
+   <script>
+        let numero = Number(prompt('Digite um número'))
+        let span = document.querySelector('#span')
+        let res = document.querySelector('#resp')
+
+        if (isNaN(numero) || numero == 0) {
+            res.innerHTML = '[Erro] Digite um número válido!'
+        } else {
+            span.innerHTML = ' ' + numero
+            res.innerHTML = `<p>A raiz quadrada do número digitado é igual a <strong>${numero ** 0.5}</strong></p>`
+            res.innerHTML += `<p>${numero} é inteiro? Resp: <strong>${Number.isInteger(numero)}</strong></p>`
+            res.innerHTML += `<p>${numero} é NaN? Resp: <strong>${Number.isNaN(numero)}</strong></p>`
+            res.innerHTML += `<p>Arredondando para cima: <strong>${Math.ceil(numero)}</strong></p>`
+            res.innerHTML += `<p>Arredondando para baixo: <strong>${Math.floor(numero)}</strong></p>`
+            res.innerHTML += `<p>Com duas casas decimais: <strong>${numero.toFixed(2)}</strong></p>`
+        }
+   </script> 
+</body>
+</html>
