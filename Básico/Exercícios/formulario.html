@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Inicial</title>
+</head>
+<body>
+    <form action="" method="get">
+        <p>Nome: <input type="text" class="nome"></p>
+        <p>Sobrenome: <input type="text" class="sobrenome"></p>
+        <p>Altura (em cm): <input type="number" class="altura"></p>
+        <p>Peso (em kg): <input type="number" class="peso"></p>
+        <input type="button" value="Enviar" onclick="enviar()">
+    </form>
+    <div id="resp"></div>
+    
+    <script>
+        let nome = document.querySelector('input.nome')
+        let sobrenome = document.querySelector('input.sobrenome')
+        let altura = document.querySelector('input.altura')
+        let peso = document.querySelector('input.peso')
+        const res = document.querySelector('div#resp')
+        const pessoas = []
+
+        function enviar() {
+            
+
+            if (nome.value.length == 0 || sobrenome.value.length == 0 || altura.value.length == 0 || peso.value.length == 0) {
+                window.alert('[ERRO] Preencha todos os campos')
+            } else {
+                /*pessoas[0] = nome.value
+                pessoas[1] = sobrenome.value
+                pessoas[2] = altura.value
+                pessoas[3] = peso.value*/
+
+                pessoas.push({
+                    nome: nome.value, 
+                    sobrenome: sobrenome.value,
+                    altura: altura.value,
+                    peso: peso.value
+                });
+
+                res.innerHTML += `<p>Seu nome é <strong>${nome.value} ${sobrenome.value}</strong>, você mede <strong>${altura.value} cm</strong> e pesa <strong>${peso.value} kg</strong>.</p>`
+
+                nome.value = ''
+                nome.focus()
+                sobrenome.value = ''
+                sobrenome.focus()
+                altura.value = ''
+                altura.focus()
+                peso.value = ''
+                peso.focus()
+            }
+        }
+
+    </script>
+</body>
+</html>
