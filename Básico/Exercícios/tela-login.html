@@ -51,7 +51,7 @@
             Login2 = login2.value
             Senha2 = senha2.value
             let confirm = Login === Login2 && Senha === Senha2
-            if (confirm == true) {
+            if (confirm) { //aqui nem precisa falar se ele é igual a 'true', pois o js analisa automaticamente e se for true, ele executa o bloco
                 res2.innerHTML = '<p>Parabéns, você realizou o login com sucesso!</p>'
                 res2.innerHTML += `<p>Seu login é <strong>${Login}</strong> e sua senha é <strong>${Senha}</strong>.</p>`
             } else {
