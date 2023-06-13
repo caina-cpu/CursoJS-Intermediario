@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo para os exercícios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="container">
+        <h1>Tabela IMC</h1>
+        
+        <h2>Resultados:</h2>
+
+        <p>IMC < 18,5 = Abaixo do peso</p>
+        <p>IMC entre 18,5 e 24,9 = Peso normal</p>
+        <p>IMC entre 25 e 29,9 = Sobrepeso</p>
+        <p>IMC entre 30 e 34,9 = Obesidade grau 1</p>
+        <p>IMC entre 35 e 39,9 = Obesidade grau 2</p>
+        <p>IMC > 40 = Obesidade grau 3</p>
+
+        <form action="">
+            <label for="input-teste1">Peso (em KG):</label>
+            <input type="number" id="peso">
+
+            <label for="input-teste1">Altura (em metros):</label>
+            <input type="number" id="altura">
+
+            <input id="botão" type="button" value="Calcular" onclick="Enviar()">
+        </form>
+
+        <div id="resp"></div>
+
+    </section>
+        
+
+    <script>
+        let Peso = document.querySelector('input#peso')
+        let Altura = document.querySelector('input#altura')
+        let res = document.querySelector('div#resp')
+
+        function Enviar() {
+            let peso = Number(Peso.value)
+            let altura = Number(Altura.value)
+
+            if (Peso.value.length == 0 || Altura.value.length == 0) {
+                res.style.background = 'crimson'
+                res.innerHTML = `<p>Coloque valores válidos em todos os campos.</p>`
+            } else if (peso > 595 || altura > 2.5) {
+                res.style.background = 'crimson'
+                res.innerHTML = `<p>Peso ou altura maior que o valor permitido.</p>`
+            } else if (peso < 1 || altura < 0.1) {
+                res.style.background = 'crimson'
+                res.innerHTML = `<p>Peso ou altura menor que o valor permitido.</p>`
+            } else {
+                let imc = peso / altura**2
+                let info = ['Abaixo do peso', 'Peso normal', 'Sobrepeso', 'Obesidade Grau 1', 'Obesidade Grau 2', 'Obesidade Grau 3']
+                res.style.background = 'lightblue'
+
+                if (imc < 18.5) 
+                    return res.innerHTML = `<p>Seu IMC é <strong>${imc.toFixed(2)}</strong> (${info[0]}).</p>`;
+                if (imc <= 24.9) 
+                    return res.innerHTML = `<p>Seu IMC é <strong>${imc.toFixed(2)}</strong> (${info[1]}).</p>`;
+                if (imc <= 29.9) 
+                    return res.innerHTML = `<p>Seu IMC é <strong>${imc.toFixed(2)}</strong> (${info[2]}).</p>`;
+                if (imc <= 34.9) 
+                    return res.innerHTML = `<p>Seu IMC é <strong>${imc.toFixed(2)}</strong> (${info[3]}).</p>`;
+                if (imc <= 39.9) 
+                    return res.innerHTML = `<p>Seu IMC é <strong>${imc.toFixed(2)}</strong> (${info[4]}).</p>`;
+                if (imc >= 40)
+                    return res.innerHTML = `<p>Seu IMC é <strong>${imc.toFixed(2)}</strong> (${info[5]}).</p>`;
+
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
