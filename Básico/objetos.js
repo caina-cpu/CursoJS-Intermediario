@@ -37,3 +37,17 @@ pessoa6.fala()
 pessoa6.incrementarIdade()
 pessoa6.fala()
 
+console.log('PAUSA')
+
+const fruta = {
+    roxo: 'uva',
+    vermelha: 'maçã',
+    amarela: 'banana', 
+    verde: 'melancia'    
+}
+
+for (let i in fruta) {
+    console.log(`A ${fruta[i]} é da cor ${i}.`)
+}
+
+
