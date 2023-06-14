@@ -28,7 +28,6 @@ function formataData(data) {
     return `${dia}/${mes}/${ano} ${hora}:${min}:${seg}`
 }
 
-const Data = new Date()
-const dataBrasil = formataData(Data)
+const dataBrasil = formataData(data)
 console.log(dataBrasil)
 

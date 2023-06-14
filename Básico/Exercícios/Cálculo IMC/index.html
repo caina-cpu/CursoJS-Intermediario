@@ -59,20 +59,24 @@
             } else {
                 let imc = peso / altura**2
                 let info = ['Abaixo do peso', 'Peso normal', 'Sobrepeso', 'Obesidade Grau 1', 'Obesidade Grau 2', 'Obesidade Grau 3']
+                let info2 = 0
                 res.style.background = 'lightblue'
 
-                if (imc < 18.5) 
-                    return res.innerHTML = `<p>Seu IMC é <strong>${imc.toFixed(2)}</strong> (${info[0]}).</p>`;
-                if (imc <= 24.9) 
-                    return res.innerHTML = `<p>Seu IMC é <strong>${imc.toFixed(2)}</strong> (${info[1]}).</p>`;
-                if (imc <= 29.9) 
-                    return res.innerHTML = `<p>Seu IMC é <strong>${imc.toFixed(2)}</strong> (${info[2]}).</p>`;
-                if (imc <= 34.9) 
-                    return res.innerHTML = `<p>Seu IMC é <strong>${imc.toFixed(2)}</strong> (${info[3]}).</p>`;
-                if (imc <= 39.9) 
-                    return res.innerHTML = `<p>Seu IMC é <strong>${imc.toFixed(2)}</strong> (${info[4]}).</p>`;
-                if (imc >= 40)
-                    return res.innerHTML = `<p>Seu IMC é <strong>${imc.toFixed(2)}</strong> (${info[5]}).</p>`;
+                if (imc < 18.5) {
+                    info2 = info[0]
+                } else if (imc <= 24.9) {
+                    info2 = info[1]
+                } else if (imc <= 29.9) {
+                    info2 = info[2]
+                } else if (imc <= 34.9) {
+                    info2 = info[3]
+                } else if (imc <= 39.9) {
+                    info2 = info[4]
+                } else {
+                    info2 = info[5]
+                } 
+
+                res.innerHTML = `<p>Seu IMC é <strong>${imc.toFixed(2)}</strong> (${info2}).</p>`;
 
             }
         }

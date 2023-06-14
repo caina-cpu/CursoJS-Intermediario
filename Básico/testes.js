@@ -12,3 +12,9 @@ const senha = 'Goat123'
 
 const verificar = usuario === 'gotalen' && senha === 'Goat123'
 console.log(verificar)
+
+function somar(a = 1, b = 2) {
+    console.log(a + b)
+}
+
+somar(500, 2)
