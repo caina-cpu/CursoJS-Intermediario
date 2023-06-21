@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo para os exercícios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="container">
+        <h1>Meu timer</h1>
+
+        <p id="timer">00:00:00</p>
+
+        <div>
+            <input class="iniciar" type="button" value="Iniciar" onclick="Iniciar()">
+            <input class="pausar" type="button" value="Pausar" onclick="Pausar()">
+            <input class="zerar" type="button" value="Zerar" onclick="Zerar()">
+        </div>
+
+    </section>
+
+    <script>
+        const relogio = document.querySelector('#timer')
+        const iniciar = document.querySelector('.iniciar')
+        const pausar = document.querySelector('.pausar')
+        const zerar = document.querySelector('.zerar')
+        let min = 0
+        let sec = 0
+        let hour = 0
+        let interval = 0 // é usada para limpar os dados do intervalo com mais facilidade
+        let isRunning = false // é usada para fazer com que não seja possível acumular a função Iniciar
+
+        function zeroEsquerda(n) {
+            return n >= 10 ? n : `0${n}`
+        }
+
+        function Iniciar() {
+            if (isRunning === false) { // impossibilita a função de acumular e aumentar sua velocidade
+                mestre()
+                interval = setInterval(mestre, 1000)
+            }
+            isRunning = true // impossibilita a função de acumular e aumentar sua velocidade, pois agora a variável é true
+        }
+
+        function Pausar() {
+            clearInterval(interval)
+            isRunning = false // possibilita que cliquemos no botão 'iniciar' novamente
+        }
+
+        function Zerar() {
+            clearInterval(interval)
+            min = 0
+            sec = 0
+            hour = 0
+            relogio.innerHTML = '00:00:00'
+            isRunning = false // possibilita que cliquemos no botão 'iniciar' novamente
+        }
+
+        function mestre() {
+            sec++
+            if (sec == 60) {
+                min++
+                sec = 0
+                if(min == 60) {
+                    hour++
+                    min = 0
+                    sec = 0
+                }
+            } 
+            relogio.innerHTML = `${zeroEsquerda(hour)}:${zeroEsquerda(min)}:${zeroEsquerda(sec)}`
+        }
+
+    </script>
+</body>
+
+</html>
