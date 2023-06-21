@@ -14,7 +14,7 @@
     <section class="container">
         <h1>Meu timer</h1>
 
-        <p id="timer">00:00:00</p>
+        <p class="timer">00:00:00</p>
 
         <div>
             <input class="iniciar" type="button" value="Iniciar" onclick="Iniciar()">
@@ -25,7 +25,7 @@
     </section>
 
     <script>
-        const relogio = document.querySelector('#timer')
+        const relogio = document.querySelector('.timer')
         const iniciar = document.querySelector('.iniciar')
         const pausar = document.querySelector('.pausar')
         const zerar = document.querySelector('.zerar')
@@ -41,6 +41,7 @@
 
         function Iniciar() {
             if (isRunning === false) { // impossibilita a função de acumular e aumentar sua velocidade
+                relogio.classList.remove('pausado')
                 mestre()
                 interval = setInterval(mestre, 1000)
             }
@@ -48,6 +49,7 @@
         }
 
         function Pausar() {
+            relogio.classList.add('pausado')
             clearInterval(interval)
             isRunning = false // possibilita que cliquemos no botão 'iniciar' novamente
         }

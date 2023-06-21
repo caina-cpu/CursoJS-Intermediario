@@ -83,3 +83,7 @@ input {
 .zerar:hover {
     transform: scale(1.05);
 }
+
+.pausado {
+    color: red;
+}
