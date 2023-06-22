@@ -25,3 +25,40 @@ h1 {
 div {
     margin: 20px 0px;
 }
+
+ul {
+    font-size: 1.3em;
+}
+
+li {
+    color: red;
+    padding: 10px;
+}
+
+.apagar {
+    cursor: pointer;
+    transition: .5s;
+    border-radius: 5px;
+    width: 60px;
+    height: 30px;
+    font-weight: bold;
+}
+
+.apagar:hover {
+    background-color: red;
+    transform: scale(1.1);
+}
+
+.concluído {
+    cursor: pointer;
+    transition: .5s;
+    border-radius: 5px;
+    width: 80px;
+    height: 30px;
+    font-weight: bold;
+}
+
+.concluído:hover {
+    background-color: green;
+    transform: scale(1.1);
+}
