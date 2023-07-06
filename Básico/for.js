@@ -23,9 +23,9 @@ for (let e in nome) {
     console.log(nome[e])
 }
 
-const pessoas = ['Cainã', 'Thamirys', 'Silvia', 'Rui', 'Edna']
+const pessoas = ['Cainã', 'Thamirys', 'Silvia', 'Rui', 'Edna', 'Thomaz']
 
-for (let u in frutas) {
+for (let u in pessoas) {
     console.log(`${pessoas[u]} faz parte da minha família.`)
 }
 
