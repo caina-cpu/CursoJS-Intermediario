@@ -52,3 +52,4 @@ console.log(duplica(5))
 console.log(triplica(5))
 console.log(quadriplica(5))
 console.log(quint(5))
+
